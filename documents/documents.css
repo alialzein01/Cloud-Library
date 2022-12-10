@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bree+Serif&family=EB+Garamond:ital,wght@0,500;1,800&display=swap');
+
+
+body {
+    /* background: #DFC2F2; */
+	/* background-image: linear-gradient( to right, #ffffb3,#ffe6e6); */
+	background-attachment: fixed;	
+	background-size: cover;
+    background-image: url(../books/oldPaper.jpeg);
+}
+/* .mainContainer{
+    width: 100%;
+    height: 600px;
+    overflow-y: auto;
+} */
+.product-image {
+	transition: all 0.3s ease-out;
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+}
+
+.info {
+    background: rgba(27, 26, 26, 0.9);
+    font-family: 'Bree Serif', serif;
+    transition: all 0.3s ease-out;
+    transform: translateX(-100%);
+    position: absolute;
+    line-height: 1.8;
+    text-align: left;
+    font-size: 105%;
+    cursor: pointer;
+    color: #FFF;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    /* padding: 10px; */
+    border-radius: 15px;
+}
+
+.info>h2, .info>p {
+    padding-left: 10px;
+}
+.product-image:hover .info{transform: translateX(0);}
+.product-image:hover img {transition: all 0.3s ease-out;}
+
+.container>a{
+    float: left;
+    display: flex;
+    width: 300px;
+    height: 200px;
+    justify-content:space-between;
+    margin: 10px;
+}
+
+.documentImage {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}

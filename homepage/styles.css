@@ -1,0 +1,53 @@
+body{
+    margin: 0;
+    background-image: url(../resources/oldPaper.jpeg);
+}
+.col{
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    padding: 6rem;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.row{
+    display: flex;
+    gap: 3rem;
+    pad: 5rem;
+}
+.row>img{
+    width: 200px;
+    height: 200px;
+}
+.item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: 200px;
+    font-size: 28px;
+    background-color: white;
+    padding: 2rem;
+    color: red;
+    font-weight: 700;
+    border-radius: 45px;
+    border: 1px solid black;
+    transition: .5s ease-in-out;
+}
+.item:hover{
+    cursor: pointer;
+    scale: 115%;
+    background: black;
+    color: white;
+    border: none;
+}
+
+a {
+    text-decoration: none;
+    color: red;
+}
