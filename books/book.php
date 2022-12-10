@@ -12,7 +12,7 @@ $row = mysqli_fetch_assoc($result);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="bookdetails.css" rel="stylesheet" type="text/css">
-    <title>Book details</title>
+    <title>Bookk details</title>
 </head>
 
 <body>
