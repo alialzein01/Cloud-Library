@@ -12,10 +12,23 @@ $row = mysqli_fetch_assoc($result);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="bookdetails.css" rel="stylesheet" type="text/css">
-    <title>Bookk details</title>
+    <title>Book details</title>
 </head>
 
 <body>
+// This is the book details page
+    <div class="book-details">
+        <div class="book-details-left">
+            <img src="../images/book.jpg" alt="book">
+        </div>
+        <div class="book-details-right">
+            <h1><?php echo $row['book_name']; ?></h1>
+            <h2><?php echo $row['book_author']; ?></h2>
+            <p><?php echo $row['book_description']; ?></p>
+            <p>Copies left: <?php echo $row['copies_left']; ?></p>
+            <button>Reserve</button>
+        </div>
+    </div>
 <div class="detailsContainer">
     <img class="bookcover" src="http://universe.byu.edu/wp-content/uploads/2015/01/HP4cover.jpg">
     <div class="bookdetails">

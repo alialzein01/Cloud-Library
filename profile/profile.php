@@ -2,6 +2,7 @@
 include('../connection.php');
 include('../scripts/editProfile.php');
 include('../scripts/sessionInfo.php');
+include('../scripts/login.php');
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +17,15 @@ include('../scripts/sessionInfo.php');
 </head>
 
 <body>
+<?php
+if (isset($_COOKIE['logged_in']) && $_COOKIE['logged_in'] == 'true') {
+// Print a message to the user
+    echo 'Welcome back, you are logged in!';
+} else {
+// Print a message to the user
+    echo 'Please log in to access this page.';
+}
+?>
 <div class="dvPadding">
     <div class="flex">
         <div class="left">
