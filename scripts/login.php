@@ -8,65 +8,70 @@ $password = '';
 
 session_start();
 
-if (isset($_POST["login"])) {
+//if (isset($_POST["login"])) {
 
 //Username or email input
-    if (isset($_POST["inputt"]) || $_POST["inputt"] != "") {
-        $input = mysqli_real_escape_string($connection, $_POST["inputt"]);
-    } else {
-        die("Error:Input your email or username");
-    }
+if (isset($_POST["inputt"]) || $_POST["inputt"] != "") {
+    $input = mysqli_real_escape_string($connection, $_POST["inputt"]);
+}
+//    else {
+//        die("Error:Input your email or username");
+//    }
 
-    $_SESSION['input'] = $input;
+$_SESSION['input'] = $input;
 
 
 //Password
-    if (isset($_POST["pass"]) && $_POST["pass"] != "") {
-        $pass_1 = mysqli_real_escape_string($connection, $_POST["pass"]);
-    } else {
-        die("Error:Input your password");
-    }
+//if (isset($_POST["pass"]) && $_POST["pass"] != "") {
+//    $pass_1 = mysqli_real_escape_string($connection, $_POST["password"]);
+//}
+//    else {
+//        die("Error:Input your password");
+//    }
 
 
 //hashing password
-    $password = hash("sha256", $pass_1);
+$password = hash("sha256", $_POST['password']);
 
 
 //query to login using email or username with the correct password
-    $query = "SELECT password FROM users WHERE username = ? or email = ?";
-    $stmt = $connection->prepare($query);
-    $stmt->bind_param("ss", $input, $input);
-    $stmt->execute();
-    $results = $stmt->get_result();
+$query = "SELECT password FROM users WHERE username = ? or email = ?";
+$stmt = $connection->prepare($query);
+$stmt->bind_param("ss", $input, $input);
+$stmt->execute();
+$results = $stmt->get_result();
 
 
-    $row = $results->fetch_assoc();
+$row = $results->fetch_assoc();
 
 
 //comparing the input password with the one in the database
-    $json = json_encode($row);
 
-    $password_check = "{\"password\":\"$password\"}";
 
-    if ($json == $password_check) {
+if ($row['password'] == $password) {
 
-        $ver_query = "SELECT verified FROM users WHERE username=? or email=?";
-        $ver_stmt = $connection->prepare($ver_query);
-        $ver_stmt->bind_param("ss", $input, $input);
-        $ver_stmt->execute();
 
-        $ver_result = $ver_stmt->get_result();
-        $ver_row = $ver_result->fetch_assoc();
-        $ver_json = json_encode($ver_row);
+    $ver_query = "SELECT verified FROM users WHERE username=? or email=?";
+    $ver_stmt = $connection->prepare($ver_query);
+    $ver_stmt->bind_param("ss", $input, $input);
+    $ver_stmt->execute();
 
-        if ($ver_json == "{\"verified\":1}") {
-            header('Location: ../profile/profile.php');
-            setcookie('logged_in', 'true', time() + (86400 * 30), '/');
-        } else {
-            die("Error: Email not verified");
-        }
+    $ver_result = $ver_stmt->get_result();
+    $ver_row = $ver_result->fetch_assoc();
+    $ver_json = json_encode($ver_row);
 
-    } else {
-        die("Error: Failed to log in");
-    }
+
+//        if ($ver_json == "{\"verified\":1}") {
+//            header('Location: ../profile/profile.php');
+    setcookie('logged_in', 'true', time() + (86400 * 30), '/');
+    echo 'success';
 }
+//        }
+//        } else {
+//            die("Error: Email not verified");
+//        }
+
+//    } else {
+//        die("Error: Failed to log in");
+//    }
+//}

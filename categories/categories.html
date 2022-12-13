@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Categories</title>
+    <style>
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        /* set background color as gradient with red and black colors*/
+        body {
+            background: linear-gradient(to right, #ff0000, #000000);
+        }
+
+        /* Style the unordered list */
+        ul {
+            text-align: center;
+            list-style-type: none;
+            margin: auto;
+            padding: 0;
+            max-width: 100%;
+        }
+
+        .card {
+            display: inline-flex;
+            flex-direction: column;
+            border: 1px solid #ccc;
+            background-color: antiquewhite;
+            border-radius: 8px;
+            width: fit-content;
+            margin: 30px;
+        }
+
+        .card:hover {
+            /* scale it up to 1.1 times */
+            transform: scale(1.1);
+        }
+
+        .card img {
+            width: 300px;
+            height: 300px;
+        }
+
+        .card .title {
+            padding-top: 10px;
+            padding-bottom: 20px;
+            font-size: 25px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1 style="text-align: center; color: #FFFFFF; color: antiquewhite;">Categories</h1>
+<ul>
+    <a href="../books/books.php">
+        <li class="card">
+            <img src="../resources/pngg.png" alt="Image">
+            <div class="title">Books</div>
+        </li>
+    </a>
+
+    <a href="../cds/cds.php">
+        <li class="card">
+            <img src="../resources/cd.png" alt="Image">
+            <div class="title">CDs</div>
+        </li>
+    </a>
+
+    <a href="../documents/documents.php">
+        <li class="card">
+            <img src="../resources/doc.png" alt="Image">
+            <div class="title">Documents</div>
+        </li>
+    </a>
+</ul>
+</body>
+</html>
